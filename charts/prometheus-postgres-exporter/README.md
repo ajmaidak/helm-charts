@@ -40,6 +40,13 @@ _See [helm uninstall](https://helm.sh/docs/helm/helm_uninstall/) for command doc
 
 ## Upgrading
 
+### To 7.0.0
+
+`config.postgresExporter` has moved to `config.postgresExporter.configMap`.
+`config.postgresExporter.secret` has been added to permit users to place secret data in /etc/postgres_exporter.yml
+This is likely interesting to users wanting to use the Multi-Target Support feature of the exporter without exposing
+a secret in a config map.
+
 ### To 6.0.0
 
 Image repository has been split into two values: the new `image.registry` value and the already existing `image.repository` value. No change is required when using the default for `image.repository`. If you have previously modified field `image.repository`, please, set the two fields accordingly.
